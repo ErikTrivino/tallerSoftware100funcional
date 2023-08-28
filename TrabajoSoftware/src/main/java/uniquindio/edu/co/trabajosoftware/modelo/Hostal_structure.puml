@@ -1,0 +1,267 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "uniquindio.edu.co.trabajosoftware.modelo.Hostal",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_100278 { 
+   	label=edu
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   subgraph cluster_1307538012 { 
+   	label=co
+	labeljust=l
+	fillcolor="#d8d8d8"
+	style=filled
+   
+   Cliente944113453[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Cliente</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   usuario: Usuario [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Habitacion944113453[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Habitacion</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   banioPrivado: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   camaExtra: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   estadoHabitacion: EstadoHabitacion [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   internet: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   parqueadero: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   reservas: ArrayList&lt;Reserva&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   telefono: String [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ agregarReserva(reserva: Reserva)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+HabitacionDoble944113453[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)HabitacionDoble</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   tipoCama: TipoCama [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+HabitacionSencilla944113453[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)HabitacionSencilla</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Hostal944113453[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Hostal</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   listaClientes: ArrayList&lt;Cliente&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   listaHabitacion: ArrayList&lt;Habitacion&gt; [0..*]</TD></TR>
+<TR><TD ALIGN="LEFT" >#   recepcionista: Recepcionista [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Pago944113453[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Pago</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   fechaPago: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   idReserva: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   valorPago: double [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Persona944113453[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Persona</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   direccion: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   documento: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   email: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nombre: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   telefono: String [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Recepcionista944113453[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Recepcionista</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   usuario: Usuario [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Reserva944113453[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Reserva</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   cantidadPersonas: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   fechaFinReserva: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   fechaInicioReserva: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   fechaReserva: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   id: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   idCliente: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   idHabitacion: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   pago: Pago [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   precioReserva: double [1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Usuario944113453[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Usuario</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   contrasenia: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   estadoLogin: Boolean [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   nombreUsuario: String [0..1]</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+} 
+
+'edges    
+Cliente944113453 -> Usuario944113453[label="usuario
+[0..1]"];
+Habitacion944113453 -> HabitacionDoble944113453[arrowhead=none, arrowtail=empty, dir=both];
+Habitacion944113453 -> HabitacionSencilla944113453[arrowhead=none, arrowtail=empty, dir=both];
+Habitacion944113453 -> Reserva944113453[label="reservas
+[0..*]"];
+Hostal944113453 -> Cliente944113453[label="listaClientes
+[0..*]"];
+Hostal944113453 -> Habitacion944113453[label="listaHabitacion
+[0..*]"];
+Hostal944113453 -> Recepcionista944113453[label="recepcionista
+[0..1]"];
+Persona944113453 -> Cliente944113453[arrowhead=none, arrowtail=empty, dir=both];
+Persona944113453 -> Recepcionista944113453[arrowhead=none, arrowtail=empty, dir=both];
+Recepcionista944113453 -> Usuario944113453[label="usuario
+[0..1]"];
+Reserva944113453 -> Pago944113453[label="pago
+[0..1]"];
+    
+}
+@enduml
